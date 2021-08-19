@@ -1,0 +1,12 @@
+CREATE TABLE user_spreadsheets(
+	id serial PRIMARY KEY,
+    name VARCHAR(255),
+    data TEXT,
+    id_user BIGINT NOT NULL,
+	"createdAt" timestamptz NOT NULL,
+	"updatedAt" timestamptz NOT NULL,
+	"deletedAt" timestamptz DEFAULT NULL,
+    CONSTRAINT fk_user
+		FOREIGN KEY(id_user) 
+			REFERENCES users(id)	
+)
