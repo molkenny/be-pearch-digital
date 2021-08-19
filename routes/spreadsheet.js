@@ -117,7 +117,7 @@ app.prefix('/api/v1/spreadsheet', async function(router) {
             let result = false;
 
             if (typeof body.name !== 'undefined') { result = await SpreadSheetController.edit(req.user.id, id_spreadsheet, body.name); }
-            if (typeof body.data !== 'undefined') { result = await SpreadSheetController.upsert(req.user.id, body.data, id_spreadsheet); }
+            if (typeof body.data !== 'undefined') { result = await SpreadSheetController.editData(req.user.id, body.data, id_spreadsheet); }
 
 
             res.json({
