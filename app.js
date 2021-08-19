@@ -28,6 +28,9 @@ app.use(require('./routes/spreadsheet'));
 
 
 //Default Routes
+app.get('/', function(req, res) {
+    res.send('Back End');
+});
 app.all('*', function(req, res) {
     res.status(400).json({
         success: false,
