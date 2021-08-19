@@ -67,20 +67,14 @@ const upsert = async(id_user, data, id_spreadsheet) => {
     try {
 
         //Verifico si existe ese id
-        let spreadSheetDB = id_spreadsheet ? await SpreadSheet.findOne({ where: { id: id_spreadsheet } }) : null;
+        let spreadSheetDB = id_spreadsheet ? await SpreadSheet.findOne({ where: { id_user, id: id_spreadsheet } }) : null;
 
         if (spreadSheetDB) {
             //Debo editar
             let result = await spreadSheetDB.update({ data });
             if (!result) throw new Error("Error al guardar");
         } else {
-            //Debo crear
-            let result = await SpreadSheet.create({
-                id_user,
-                name: `SP-${Date.now()}`,
-                data
-            });
-            if (!result) throw new Error("Error al crear");
+            throw new Error("Error al editar");
         }
 
         return true;
