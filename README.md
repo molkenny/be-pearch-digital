@@ -1,7 +1,7 @@
 <h1><b>Test Pearch Digital</b></h1>
 
 <h2 style="margin-top: 15px;">Back-End (Node Js)</h2>
-<h2>Host: Heroku</h2>
+<h2>Host: Heroku https://test-pearch-digital.herokuapp.com</h2>
 <h2>BD: PGSQL</h2>
 
 
